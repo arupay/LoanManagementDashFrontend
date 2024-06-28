@@ -57,7 +57,7 @@ const BarChart = ({ loans }) => {
 
   return (
     <div
-      className="chart-container"
+      className="bottom-column"
       style={{ width: "600px", height: "400px" }}
     >
       <h3>Loan Amount Distribution</h3>

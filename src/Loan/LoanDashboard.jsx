@@ -32,13 +32,13 @@ const LoanDashboard = ({ loans }) => {
   };
 
   return (
-    <div className="table-container">
+    <div className="bottom-column">
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Interest Rate</th>
-            <th>Term Length (Months)</th>
+            <th>Term Length (Years)</th>
             <th>Amount Total (USD)</th>
           </tr>
         </thead>

@@ -3,6 +3,7 @@ import "./App.css";
 import LoanDashboard from "./Loan/LoanDashboard";
 import axios from "axios";
 import BarChart from "./Chart/BarChart";
+import LoanTerms from "./Loan/LoanTerms";
 
 function App() {
   const [loans, setLoans] = useState([]);
@@ -17,7 +18,6 @@ function App() {
         console.error("There was an error fetching the loans!", error);
       });
   }, []);
-
   return (
     <div className="App">
       <h2>Loan Management Dashboard</h2>
@@ -27,7 +27,13 @@ function App() {
           <LoanDashboard loans={loans} />
         </div>
       </main>
+      <div className="LoanTerms">
+      <h2>Loan Terms</h2>
+      <LoanTerms loans={loans} /> 
     </div>
+    </div>
+
+
   );
 }
 
