@@ -1,5 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { FaGraduationCap, FaHome, FaUserTie } from "react-icons/fa"; // Importing example icons
+
+const formatCurrency = (amount) => {
+  return `$${parseFloat(amount)
+    .toFixed(2)
+    .replace(/\d(?=(\d{3})+\.)/g, "$&,")}`;
+};
+
+const formatPercentage = (rate) => {
+  return `${parseFloat(rate).toFixed(2)}%`;
+};
+
+const getIconForLoanType = (type) => {
+  switch (type) {
+    case "Student Loan":
+      return <FaGraduationCap />;
+    case "Mortgage Loan":
+      return <FaHome />;
+    case "Personal Loan":
+      return <FaUserTie />;
+    default:
+      return null;
+  }
+};
 
 const LoanDashboard = ({ loans }) => {
   const [expandedRow, setExpandedRow] = useState(null);
@@ -37,6 +61,7 @@ const LoanDashboard = ({ loans }) => {
         <thead>
           <tr>
             <th>ID</th>
+            <th>Type</th>
             <th>Interest Rate</th>
             <th>Term Length (Years)</th>
             <th>Amount Total (USD)</th>
@@ -52,13 +77,19 @@ const LoanDashboard = ({ loans }) => {
                 }`}
               >
                 <td>{loan.id}</td>
-                <td>{loan.rate} %</td>
+                <td>
+                  {getIconForLoanType(loan.type)}{" "}
+                  <span style={{ marginLeft: "5px" }}>
+                    {loan.type.split(" ")[0]}
+                  </span>
+                </td>
+                <td>{formatPercentage(loan.rate)}</td>
                 <td>{loan.term}</td>
-                <td>${loan.amount}</td>
+                <td>{formatCurrency(loan.amount)}</td>
               </tr>
               {expandedRow === loan.id && (
                 <tr className="expanded-content">
-                  <td colSpan="4">
+                  <td colSpan="5">
                     <div>
                       <p>
                         <strong>Monthly Payment:</strong>{" "}
