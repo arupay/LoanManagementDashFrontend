@@ -4,6 +4,9 @@ import LoanDashboard from "./Loan/LoanDashboard";
 import axios from "axios";
 import BarChart from "./Chart/BarChart";
 import LoanTerms from "./Loan/LoanTerms";
+import PieChart from "./Chart/PieChart";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "./Components/NavBar";
 
 function App() {
   const [loans, setLoans] = useState([]);
@@ -18,22 +21,27 @@ function App() {
         console.error("There was an error fetching the loans!", error);
       });
   }, []);
+
   return (
     <div className="App">
-      <h2>Loan Management Dashboard</h2>
-      <BarChart loans={loans} />
-      <main>
+      <NavBar />
+      <div className="row justify-content-center align-items-center d-flex p-3">
+        <div className="col-md-6 d-flex justify-content-center">
+          <BarChart loans={loans} />
+        </div>
+        <div className="col-md-6 d-flex justify-content-center">
+          <PieChart loans={loans} />
+        </div>
+      </div>
+      <div className="container">
         <div className="table-container">
           <LoanDashboard loans={loans} />
         </div>
-      </main>
-      <div className="LoanTerms">
-      <h2>Loan Terms</h2>
-      <LoanTerms loans={loans} /> 
+        <div className="table-container">
+          <LoanTerms loans={loans} />
+        </div>
+      </div>
     </div>
-    </div>
-
-
   );
 }
 

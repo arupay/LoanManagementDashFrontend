@@ -1,24 +1,32 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import "./chartConfig"; // Ensure this import is present to register ChartJS components
+import "./chartConfig";
 
 const BarChart = ({ loans }) => {
+  // Sort loans by amount in descending order
+  const sortedLoans = [...loans].sort((a, b) => b.amount - a.amount);
+
+  const getColor = (type) => {
+    switch (type) {
+      case "Student Loan":
+        return "#36A2EB";
+      case "Mortgage Loan":
+        return "#4CAF50";
+      case "Personal Loan":
+        return "#FF9800";
+      default:
+        return "#CCCCCC";
+    }
+  };
+
   const data = {
-    labels: loans.map((loan) => `Loan ${loan.id}`),
+    labels: sortedLoans.map((loan) => `${loan.id}`),
     datasets: [
       {
         label: "Loan Amounts",
-        data: loans.map((loan) => loan.amount),
-        backgroundColor: loans.map((loan) => {
-          if (loan.amount < 50000) return "#FF6384";
-          if (loan.amount < 150000) return "#36A2EB";
-          return "#FFCE56";
-        }),
-        hoverBackgroundColor: loans.map((loan) => {
-          if (loan.amount < 50000) return "#FF6384";
-          if (loan.amount < 150000) return "#36A2EB";
-          return "#FFCE56";
-        }),
+        data: sortedLoans.map((loan) => loan.amount),
+        backgroundColor: sortedLoans.map((loan) => getColor(loan.type)),
+        hoverBackgroundColor: sortedLoans.map((loan) => getColor(loan.type)),
       },
     ],
   };
@@ -31,12 +39,12 @@ const BarChart = ({ loans }) => {
       },
       title: {
         display: true,
-        text: "Loan Amount Distribution",
+        text: "Loans By Amount",
       },
       tooltip: {
         callbacks: {
           label: function (context) {
-            const loan = loans[context.dataIndex];
+            const loan = sortedLoans[context.dataIndex];
             return `Amount: $${loan.amount}, Rate: ${loan.rate}%, Term: ${loan.term} months`;
           },
         },
@@ -56,11 +64,7 @@ const BarChart = ({ loans }) => {
   };
 
   return (
-    <div
-      className="bottom-column"
-      style={{ width: "600px", height: "400px" }}
-    >
-      <h3>Loan Amount Distribution</h3>
+    <div style={{ width: "100%", marginLeft: "100px" }}>
       <Bar data={data} options={options} />
     </div>
   );
