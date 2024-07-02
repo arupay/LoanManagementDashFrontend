@@ -1,17 +1,3 @@
-/* .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-} */
-
-.chart-container {
-  width: 90%;
-  max-width: 800px;
-  margin: 20px auto;
-}
-
 .table-container {
   width: 90%;
   max-width: 1200px;
@@ -64,101 +50,45 @@
   }
 }
 
-
-html, body, h1, h2, h3, h4, h5 {
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.custom-theme {
-  background-color: #f0f5f9; /* Light blue background */
-  color: #333; /* Dark text */
-}
-
-.container {
-  display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.left-column, .right-column {
-  flex: 1;
-  padding: 20px;
-  background-color: #fff; /* White background */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.left-column {
-  margin-right: 20px;
-}
-
-.page-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.w3-table {
-  width: 100%;
-}
-
-.w3-button {
-  margin-top: 10px;
-}
-
-/* Chart styles */
-#myChart {
-  max-width: 100%;
-  max-height: 300px;
-  margin: 0 auto;
-  display: block;
-}
-
-/* Loan terms and interest rates styling */
-.terms-container {
-  margin-bottom: 20px;
-}
-
-.terms-container h5 {
-  margin-bottom: 10px;
-}
-
-.terms-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.terms-list li {
-  margin-bottom: 10px;
-}
-
-.interest-rates-container {
-  margin-top: 20px;
-}
-
-.interest-rates-container h5 {
-  margin-bottom: 10px;
-}
-
-.w3-table-interest-rates {
-  width: 100%;
-}
-
-.w3-table-interest-rates td {
-  padding: 8px;
-}
-
-.bottom-column{
+.bottom-column {
   max-width: 80%;
   flex: 1;
   margin: auto;
-  padding: 10px;
   padding: 20px;
   background-color: #fff; /* White background */
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.w3-grey {
+  background-color: grey;
+}
+
+.w3-container {
+  padding: 8px;
+}
+
+.w3-center {
+  text-align: center;
+}
+
+.w3-padding {
+  padding: 16px;
+}
+
+/* Centering the h2 elements */
+h2 {
+  text-align: center;
 }
