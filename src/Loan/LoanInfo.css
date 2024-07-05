@@ -1,0 +1,44 @@
+.loan-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.loan-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.negmt {
+  margin-top: -8px;
+}
+.amount {
+  font-weight: 800;
+}
+
+.close-btn {
+  float: right;
+}
+
+.loan-header {
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.loan-progress-container {
+  width: 70%;
+  margin: 20px auto;
+  background-color: #c4d8f2;
+  border-radius: 15px;
+}
+
+.loan-progress {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #99abc1;
+}

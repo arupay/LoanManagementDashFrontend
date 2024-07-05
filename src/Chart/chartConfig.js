@@ -1,27 +1,25 @@
-// src/Chart/chartConfig.js
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
-  ArcElement,
-  PointElement, // Add this line
-  BubbleController, // Add this line
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
+  ArcElement,
 } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
-  ArcElement,
-  PointElement, // Add this line
-  BubbleController, // Add this line
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 );
 
 export { ChartJS };
